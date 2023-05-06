@@ -13,7 +13,9 @@ public class RaycastRewind : MonoBehaviour
    
     private Player player;
     private Vector3 lastPos;
-    private bool _canShoot = true;
+
+    public bool _canShoot = true;
+    
     private void Start()
     {
         lastPos = Vector3.zero;
@@ -34,7 +36,7 @@ public class RaycastRewind : MonoBehaviour
     {
         StopAllCoroutines();
     }
-    private IEnumerator WaitCooldownDMG()
+    public IEnumerator WaitCooldownDMG()
     {
         _canShoot = false;
         _cdImage.fillAmount = 0f;

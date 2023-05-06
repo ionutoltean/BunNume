@@ -19,6 +19,7 @@ public class PlayerTray : MonoBehaviour
     private PlayerHealth playerHealth;
     private GameObject _parentOfSpawns;
     private bool _canShoot = true;
+    private RaycastRewind _rewindAbility;
     void Start()
     {
         Initialize();
@@ -53,6 +54,7 @@ public class PlayerTray : MonoBehaviour
         _pastPlayerData = new List<GameObject>();
         _lastPostion = transform.localPosition;
         playerHealth = gameObject.GetComponent<PlayerHealth>();
+        _rewindAbility = gameObject.GetComponent<RaycastRewind>();
     }
 
     private void OnDestroy()
@@ -63,6 +65,8 @@ public class PlayerTray : MonoBehaviour
 
     public void GoBackInTime(int secondsInPast)
     {
+        if (_rewindAbility._canShoot == false)
+            return;
         try
         {
             int pastPositionIndex = _pastPlayerData.Count - (secondsInPast * _updateTrayRatePerSecond);
@@ -72,7 +76,7 @@ public class PlayerTray : MonoBehaviour
 
             transform.position = _pastPlayerData[pastPositionIndex].transform.position;
 
-            playerHealth.SetCurrentHealth(_pastPlayerData[pastPositionIndex].transform.gameObject.GetComponent<PlayerHealth>().GetCurrentHealth());
+            playerHealth.SetCurrentHealth(_pastPlayerData[pastPositionIndex].transform.gameObject.GetComponent<PlayerHealthHolder>().health);
 
             _pastPlayerData.RemoveRange(pastPositionIndex, secondsInPast * _updateTrayRatePerSecond);
         }catch(ArgumentOutOfRangeException e)
@@ -81,6 +85,7 @@ public class PlayerTray : MonoBehaviour
                 transform.position = _pastPlayerData[0].transform.position;
             ClearSpawnedStuf();
         }
+        _rewindAbility.StartCoroutine(_rewindAbility.WaitCooldownDMG());
     }
 
     public void BurnPastTray()
@@ -166,8 +171,8 @@ public class PlayerTray : MonoBehaviour
     }
     private void SavePlayerHealthInPast(GameObject go)
     {
-        PlayerHealth playerHealthSave = go.GetComponent<PlayerHealth>();
-        playerHealthSave.SetCurrentHealth(playerHealth.GetCurrentHealth());
+        PlayerHealthHolder playerHealthSave = go.GetComponent<PlayerHealthHolder>();
+        playerHealthSave.health = playerHealth.GetCurrentHealth();
     }
     private void SetLineRendererPositions(GameObject first, GameObject second)
     {
