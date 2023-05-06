@@ -8,28 +8,31 @@ using UnityEngine.InputSystem;
 public class GameInput : MonoBehaviour
 {
      private PlayerInputActions playernPlayerInputActions;
-    public event EventHandler OnInteractAction;
-
+    public event EventHandler OnRewindAction;
+   
     private void Awake()
     {
         playernPlayerInputActions = new PlayerInputActions();
         playernPlayerInputActions.Enable();
     
-        playernPlayerInputActions.Player.Interact.performed += InteractPerformed;
+       // playernPlayerInputActions.PlayerWasd.Bomb.performed += BombTriggered;
+      //  playernPlayerInputActions.PlayerWasd.Rewind.performed += TurnBackTime;
     }
-    
-    private void InteractPerformed(InputAction.CallbackContext obj)
+
+    private void TurnBackTime(InputAction.CallbackContext obj)
     {
-        OnInteractAction?.Invoke(this, EventArgs.Empty);
+        OnRewindAction?.Invoke(this, EventArgs.Empty);
     }
+
+   
 
 
     public Vector2 GetMovementVectorNormalized()
     {
-        Vector2 inputVector = playernPlayerInputActions.Player.Move.ReadValue<Vector2>();
+    //    Vector2 inputVector = playernPlayerInputActions.PlayerWasd.Move.ReadValue<Vector2>();
 
-        inputVector = inputVector.normalized;
+      //  inputVector = inputVector.normalized;
 
-        return inputVector;
+        return Vector2.down; //inputVector;
     }
 }
