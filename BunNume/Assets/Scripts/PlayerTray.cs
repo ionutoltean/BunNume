@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerTray : MonoBehaviour
 {
     [SerializeField] private int _updateTrayRatePerSecond;
     [SerializeField] private float _removePastTrayDelay;
     [SerializeField] private GameObject _toSpawnPastPosition;
-    
+    [SerializeField] private Image _cdImage;
+    [SerializeField] private float _CD = 7f;
     [SerializeField] private int _goSecondsInPast;
     
     private List<GameObject> _pastPlayerData;
@@ -16,7 +18,7 @@ public class PlayerTray : MonoBehaviour
 
     private PlayerHealth playerHealth;
     private GameObject _parentOfSpawns;
-
+    private bool _canShoot = true;
     void Start()
     {
         Initialize();
@@ -33,6 +35,17 @@ public class PlayerTray : MonoBehaviour
         {
             BurnPastTray();
         }
+        if (_canShoot == false)
+        {
+            _cdImage.fillAmount += 1.0f / _CD * Time.deltaTime;
+        }
+    }
+    private IEnumerator WaitCooldownDMG()
+    {
+        _canShoot = false;
+        _cdImage.fillAmount = 0f;
+        yield return new WaitForSeconds(_CD);
+        _canShoot = true;
     }
     private void Initialize()
     {
@@ -72,6 +85,8 @@ public class PlayerTray : MonoBehaviour
 
     public void BurnPastTray()
     {
+        if (_canShoot == false)
+            return;
         for (int i = 0; i < _parentOfSpawns.transform.childCount; i++)
         {
             GameObject tray = _parentOfSpawns.transform.GetChild(i).gameObject;
@@ -91,6 +106,7 @@ public class PlayerTray : MonoBehaviour
                
             
         }
+        StartCoroutine(nameof(WaitCooldownDMG));
     }
     private void ClearSpawnedStuf()
     {
