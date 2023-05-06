@@ -86,30 +86,7 @@ public class Player : MonoBehaviour
 
         canMove = true;
         if (onTerrain == false) return;
-        if (canMove)
-        {
-            /// X
-            Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
-            canMove = !Physics.CapsuleCast(position, position + Vector3.up * playerHeight,
-                playerSize, moveDirX, moveDistance);
-            if (canMove)
-            {
-                moveDir = moveDirX;
-            }
-            else
-            {
-                //z
-                Vector3 moveDirZ = new Vector3(0, moveDir.z, moveDir.z).normalized;
-
-                canMove = !Physics.CapsuleCast(position, position + Vector3.up * playerHeight,
-                    playerSize, moveDirZ, moveDistance);
-                if (canMove)
-                {
-                    moveDir = moveDirZ;
-                }
-            }
-        }
-
+        
         if (canMove)
         {
             transform.position += moveDistance * moveDir;
