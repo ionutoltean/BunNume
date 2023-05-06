@@ -69,7 +69,7 @@ public class PlayerTray : MonoBehaviour
         }
     }
 
-    private void BurnPastTray()
+    public void BurnPastTray()
     {
         for (int i = 0; i < _parentOfSpawns.transform.childCount; i++)
         {
