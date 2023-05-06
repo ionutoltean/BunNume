@@ -106,6 +106,15 @@ public class Player : MonoBehaviour
         _isWalking = moveDir != Vector3.zero;
 
         _animator.SetBool("IsRunning", _isWalking);
+        if (moveDir.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (moveDir.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
 
         //transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * _rotateSpeed);
     }
