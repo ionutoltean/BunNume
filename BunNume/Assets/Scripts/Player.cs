@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
     
     public void OnFire(InputAction.CallbackContext context)
     {
-        fire = context.action.triggered;
+       FireTriggered();
     }
 
     void OnTriggerEnter2D(Collider2D col)
