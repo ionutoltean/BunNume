@@ -179,6 +179,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""01f9528f-fb0f-4652-aacd-c63a90e9e26c"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keypad2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""13da64d6-d8a0-47d9-b64f-181a3602dea6"",
                     ""path"": ""<Keyboard>/numpadPeriod"",
                     ""interactions"": """",
@@ -195,6 +206,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Bomb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e97683c1-895b-4ebc-a440-f9e442c2e9dc"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keypad2"",
                     ""action"": ""Bomb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -275,6 +297,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Keypad2"",
+            ""bindingGroup"": ""Keypad2"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": true,
                     ""isOR"": false
                 }
@@ -416,6 +449,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         {
             if (m_KeyboardWASDSchemeIndex == -1) m_KeyboardWASDSchemeIndex = asset.FindControlSchemeIndex("KeyboardWASD");
             return asset.controlSchemes[m_KeyboardWASDSchemeIndex];
+        }
+    }
+    private int m_Keypad2SchemeIndex = -1;
+    public InputControlScheme Keypad2Scheme
+    {
+        get
+        {
+            if (m_Keypad2SchemeIndex == -1) m_Keypad2SchemeIndex = asset.FindControlSchemeIndex("Keypad2");
+            return asset.controlSchemes[m_Keypad2SchemeIndex];
         }
     }
     public interface IPlayerActions

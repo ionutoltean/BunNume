@@ -68,13 +68,14 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        // if (col.name.Contains("Terrain"))
-        //     onTerrain = true;
+        if (col.name.Contains("Terrain"))
+            onTerrain = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        transform.position = Vector3.Lerp(transform.position, other.gameObject.transform.position, Time.deltaTime);
+        if (other.name.Contains("Terrain"))
+            transform.position = Vector3.Lerp(transform.position, other.gameObject.transform.position, Time.deltaTime);
     }
 
     private void HandleMovement()
