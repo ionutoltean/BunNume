@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5953321940039880322}
   - component: {fileID: 1518222494}
   - component: {fileID: 727762646}
+  - component: {fileID: 719000913995804080}
   - component: {fileID: 9049465111006244269}
   - component: {fileID: 8110531542221736001}
   m_Layer: 6
@@ -242,6 +243,20 @@ MonoBehaviour:
   _removePastTrayDelay: 10
   _toSpawnPastPosition: {fileID: 2712233884284567121}
   _goSecondsInPast: 5
+--- !u!114 &719000913995804080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953321940039880379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8215895e03b098d4da3a64d72b7168d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocity: 10
+  _rewindBullet: {fileID: 4809290050321805055, guid: b84f18e8ad8d22647abfe258b105fd66, type: 3}
 --- !u!82 &9049465111006244269
 AudioSource:
   m_ObjectHideFlags: 0
