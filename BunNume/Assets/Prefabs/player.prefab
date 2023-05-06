@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d170ac00cef354790ba2de1105c467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateTrayRatePerSecond: 4
+  _updateTrayRatePerSecond: 5
   _removePastTrayDelay: 15
   _toSpawnPastPosition: {fileID: 2712233884284567121}
   _cdImage: {fileID: 6787223509312606632}
@@ -262,6 +262,7 @@ MonoBehaviour:
   _coolDown: 5
   _selfDestroy: 15
   _cdImage: {fileID: 7249881830541680326}
+  _canShoot: 1
 --- !u!82 &9049465111006244269
 AudioSource:
   m_ObjectHideFlags: 0
