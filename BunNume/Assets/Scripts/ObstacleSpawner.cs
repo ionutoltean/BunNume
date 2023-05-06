@@ -11,6 +11,8 @@ public class ObstacleSpawner : MonoBehaviour
     public Transform spawnPointTransform;
     public Transform moveTowardsPointTransform;
     public ParticleSystem portalParticle;
+    public AudioSource portalSound;
+    public AudioSource launchSound;
 
     private void Start()
     {
@@ -19,11 +21,13 @@ public class ObstacleSpawner : MonoBehaviour
     
     private void SpawnParticle()
     {
+        portalSound.Play();
         portalParticle.Play();
         Invoke(nameof(SpawnObstacle), portalOpenTimer);
     }
     private void SpawnObstacle()
     {
+        launchSound.Play();
         GameObject spawnedObstacle = Instantiate(obstaclePrefab, spawnPointTransform.position, Quaternion.identity);
         spawnedObstacle.GetComponent<Obstacle>().moveToTarget = moveTowardsPointTransform;
     }

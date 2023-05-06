@@ -12,7 +12,8 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float timeToDestroy = 1f;
     
     //Components
-    [Header("Components")]
+    [Header("Components")] 
+    public AudioSource explodeSound;
     public ParticleSystem explosionParticle;
     public SpriteRenderer bombSprite;
     public Collider2D bombCollider;
@@ -30,7 +31,8 @@ public class Bomb : MonoBehaviour
         {
             playerHealth.TakeDamage(damageAmount);
         }
-
+        
+        explodeSound.Play();
         explosionParticle.Play();
         bombSprite.enabled = false;
         bombCollider.enabled = false;
