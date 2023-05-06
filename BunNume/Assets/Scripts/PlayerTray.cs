@@ -8,14 +8,14 @@ public class PlayerTray : MonoBehaviour
     [SerializeField] private int _updateTrayRatePerSecond;
     [SerializeField] private float _removePastTrayDelay;
     [SerializeField] private GameObject _toSpawnPastPosition;
-    [SerializeField] private GameObject _parentOfSpawns;
+    
     [SerializeField] private int _goSecondsInPast;
     
     private List<GameObject> _pastPlayerData;
     private Vector3 _lastPostion;
 
     private PlayerHealth playerHealth;
-
+    private GameObject _parentOfSpawns;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class PlayerTray : MonoBehaviour
     }
     private void Initialize()
     {
+        _parentOfSpawns = Instantiate(new GameObject(), transform.parent);
         _pastPlayerData = new List<GameObject>();
         _lastPostion = transform.localPosition;
         playerHealth = gameObject.GetComponent<PlayerHealth>();
