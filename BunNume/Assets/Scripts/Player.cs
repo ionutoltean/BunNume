@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public GameObject BombPrefab;
     private bool canMove;
     private bool onTerrain;
+    private Animator _animator;
 
 
     // Update is called once per frame
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _gameInput.OnRewindAction += GameInputOnRewindAction;
+        _animator = GetComponentInChildren<Animator>();
     }
 
 
@@ -72,7 +74,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        
         transform.position = Vector3.Lerp(transform.position, other.gameObject.transform.position, Time.deltaTime);
     }
 
@@ -84,7 +85,7 @@ public class Player : MonoBehaviour
 
 
         canMove = true;
-      //  if (onTerrain == false) return;
+        //  if (onTerrain == false) return;
 
         if (canMove)
         {
@@ -102,11 +103,15 @@ public class Player : MonoBehaviour
         }
 
         _isWalking = moveDir != Vector3.zero;
+
+        _animator.SetBool("IsRunning", _isWalking);
+
         //transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * _rotateSpeed);
     }
 
     public void BombTriggered()
     {
-        Instantiate(BombPrefab, transform);
+        var bomb = Instantiate(BombPrefab, transform);
+        bomb.transform.SetParent(transform.parent);
     }
 }
