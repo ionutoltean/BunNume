@@ -15,6 +15,11 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = 0;
             Die();
         }
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 
     private void Die()

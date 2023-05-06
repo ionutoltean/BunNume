@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Obstacle : MonoBehaviour
 {
-    [SerializeField] private float damageAmount = 10f;
-    [SerializeField] private float moveSpeed = 0.1f;
+    [SerializeField] private float damageAmount = 10f; 
+    [SerializeField] private float moveAmount = 0.1f;
 
     public float timeToDestroy = 1f;
     public Transform moveToTarget;
@@ -26,7 +27,7 @@ public class Obstacle : MonoBehaviour
     {
         if(_shouldMove)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _moveToPosition, moveSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, _moveToPosition, moveAmount);
         
             if (transform.position == _moveToPosition)
             {

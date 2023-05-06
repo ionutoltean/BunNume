@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5136413901742135710}
   - component: {fileID: 8571557433781808488}
   m_Layer: 7
-  m_Name: Obstacle
+  m_Name: Obstacle arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
-  moveSpeed: 0.1
+  moveAmount: 0.2
   timeToDestroy: 0.3
   moveToTarget: {fileID: 0}
   breakParticle: {fileID: 5136413901742135710}
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 0ac55f9f886d827408c102bdf33c5ff7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.52359486, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -336,8 +336,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.3584906, g: 0.1414699, b: 0, a: 1}
-        key1: {r: 0.8396226, g: 0.44230622, b: 0, a: 1}
+        key0: {r: 0.745283, g: 0.305461, b: 0.017577427, a: 1}
+        key1: {r: 1, g: 0.52803737, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
