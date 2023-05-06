@@ -40,8 +40,8 @@ public class Player : MonoBehaviour
     private void GameInputOnRewindAction(object sender, EventArgs e)
     {
         float interactDistance = 2f;
-      //  var inputVector = _gameInput.GetMovementVectorNormalized();
-      //  Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+        //  var inputVector = _gameInput.GetMovementVectorNormalized();
+        //  Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
     }
 
     public bool IsWalking()
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
     {
         Vector3 position = transform.position;
         float moveDistance = _moveSpeed * Time.deltaTime;
-        Vector3 moveDir = new Vector3(inputDirection.x, inputDirection.y, inputDirection.y);
+        Vector3 moveDir = new Vector3(inputDirection.x, inputDirection.y, 0);
 
 
         canMove = true;

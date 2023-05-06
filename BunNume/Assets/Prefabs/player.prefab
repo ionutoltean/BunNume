@@ -119,7 +119,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -152,6 +152,10 @@ MonoBehaviour:
   playerSize: 10
   playerHeight: 2.5
   _gameInput: {fileID: 0}
+  inputDirection: {x: 0, y: 0, z: 0}
+  bomb: 0
+  rewind: 0
+  BombPrefab: {fileID: 0}
 --- !u!114 &5953321940039880322
 MonoBehaviour:
   m_ObjectHideFlags: 0
