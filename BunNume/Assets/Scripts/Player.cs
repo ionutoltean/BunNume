@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
 
         _isWalking = moveDir != Vector3.zero;
 
-        _animator.SetBool("IsRunning", _isWalking);
+        _animator?.SetBool("IsRunning", _isWalking);
         if (moveDir.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);

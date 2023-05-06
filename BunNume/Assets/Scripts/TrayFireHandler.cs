@@ -7,7 +7,8 @@ public class TrayFireHandler : MonoBehaviour
     [SerializeField] private GameObject currentPlayer;
     [SerializeField] private float _damageAmount = 10f;
 
-    private void OnCollisionEnter2D(Collision2D col)
+
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (ReferenceEquals(currentPlayer, col.gameObject)) return;
 
