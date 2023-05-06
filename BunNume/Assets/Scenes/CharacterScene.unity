@@ -958,6 +958,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5953321940039880327, guid: 90d12190a9b5f5241b1de53b278a8b33, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5953321940039880376, guid: 90d12190a9b5f5241b1de53b278a8b33, type: 3}
       propertyPath: BombPrefab
       value: 
