@@ -10,7 +10,6 @@ public class PlayerTray : MonoBehaviour
     [SerializeField] private GameObject _toSpawnPastPosition;
     [SerializeField] private GameObject _parentOfSpawns;
     [SerializeField] private int _goSecondsInPast;
-    [SerializeField] private ParticleSystem _burnParticleTray;
     
     private List<GameObject> _pastPlayerData;
     private Vector3 _lastPostion;
@@ -77,7 +76,8 @@ public class PlayerTray : MonoBehaviour
             GameObject tray = _parentOfSpawns.transform.GetChild(i).gameObject;
             if(tray.GetComponent<ParticleSystem>() == null)
             {
-                ParticleSystem particle = tray.AddComponent(typeof(ParticleSystem)) as ParticleSystem;
+                ParticleSystem particle = tray.GetComponentInChildren<ParticleSystem>();
+
                 if (particle != null)
                     particle.Play();
             }
