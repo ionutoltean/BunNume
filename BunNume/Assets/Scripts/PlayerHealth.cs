@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth = 100f;
     [SerializeField] private float _cooldownDMG = 0.5f;
+    public AudioSource deathSound;
+    public ParticleSystem bloodParticle;
     private Image _healthImage;
     private bool _canTakeDMG = true;
 
@@ -61,6 +63,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        bloodParticle.Play();
+        deathSound.Play();
         Debug.Log(gameObject.transform.name + " has died");
     }
 }

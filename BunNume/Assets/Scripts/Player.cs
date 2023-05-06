@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.PlayerLoop;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float playerSize = 10;
     [SerializeField] private float playerHeight = 2.5f;
     [SerializeField] private GameInput _gameInput;
+    [SerializeField] private float _bombCooldown = 1f;
 
     private bool _isWalking;
 
@@ -26,12 +28,17 @@ public class Player : MonoBehaviour
     private bool onTerrain;
     private Animator _animator;
     private PlayerTray _playerTray;
+    private float bombCooldownInternal;
 
 
     // Update is called once per frame
     void Update()
     {
         HandleMovement();
+        if (bombCooldownInternal > 0)
+        {
+            bombCooldownInternal -= Time.deltaTime;
+        }
     }
 
     private void Start()
@@ -135,8 +142,11 @@ public class Player : MonoBehaviour
 
     public void BombTriggered()
     {
-        var bomb = Instantiate(BombPrefab, transform);
-        bomb.transform.SetParent(transform.parent);
+        if (bombCooldownInternal <= 0)
+        {
+            var bomb = Instantiate(BombPrefab, transform.position, Quaternion.identity);
+            bombCooldownInternal = _bombCooldown;
+        }
     }
     public void FireTriggered()
     {
