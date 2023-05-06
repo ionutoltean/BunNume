@@ -80,6 +80,12 @@ public class PlayerTray : MonoBehaviour
 
                 if (particle != null)
                     particle.Play();
+
+                CircleCollider2D collider = tray.GetComponent<CircleCollider2D>();
+                if (collider)
+                {
+                    collider.enabled = true;
+                }
             }
                
             
