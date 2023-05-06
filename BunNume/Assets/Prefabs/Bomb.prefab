@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796314336d837440182b5de6f2b1a070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 100
+  damageAmount: 20
   timeToExplode: 2
   timeToDestroy: 1
   explosionParticle: {fileID: 1640722563682329138}

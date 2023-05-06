@@ -31,6 +31,11 @@ public class MenuManager : MonoBehaviour
             //Start game
             SceneManager.LoadScene(0);
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GetBackToMainMenu();
+        }
     }
 
     public void GetBackToMainMenu()
