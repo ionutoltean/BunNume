@@ -72,3 +72,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 BunNume/Temp
 BunNume/Library
+BunNume/Logs
