@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  _cooldownDMG: 0.5
 --- !u!58 &4779698450033386108
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -198,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPlayer: {fileID: 0}
-  _damageAmount: 30
+  _damageAmount: 10
 --- !u!1001 &7458233111811393597
 PrefabInstance:
   m_ObjectHideFlags: 0
