@@ -10,8 +10,8 @@ public class PlayerTray : MonoBehaviour
     [SerializeField] private GameObject _toSpawnPastPosition;
     [SerializeField] private GameObject _parentOfSpawns;
     [SerializeField] private int _goSecondsInPast;
+    [SerializeField] private ParticleSystem _burnParticleTray;
     
-
     private List<GameObject> _pastPlayerData;
     private Vector3 _lastPostion;
 
@@ -23,7 +23,18 @@ public class PlayerTray : MonoBehaviour
         Initialize();
         StartCoroutine(nameof(SavePlayerTray));
     }
-  
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GoBackInTime(_goSecondsInPast);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            BurnPastTray();
+        }
+    }
     private void Initialize()
     {
         _pastPlayerData = new List<GameObject>();
@@ -56,6 +67,22 @@ public class PlayerTray : MonoBehaviour
             if(_pastPlayerData.Count>0)
                 transform.position = _pastPlayerData[0].transform.position;
             ClearSpawnedStuf();
+        }
+    }
+
+    private void BurnPastTray()
+    {
+        for (int i = 0; i < _parentOfSpawns.transform.childCount; i++)
+        {
+            GameObject tray = _parentOfSpawns.transform.GetChild(i).gameObject;
+            if(tray.GetComponent<ParticleSystem>() == null)
+            {
+                ParticleSystem particle = tray.AddComponent(typeof(ParticleSystem)) as ParticleSystem;
+                if (particle != null)
+                    particle.Play();
+            }
+               
+            
         }
     }
     private void ClearSpawnedStuf()
