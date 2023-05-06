@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5953321940039880322}
   - component: {fileID: 1518222494}
   - component: {fileID: 727762646}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,8 @@ MonoBehaviour:
   inputDirection: {x: 0, y: 0, z: 0}
   bomb: 0
   rewind: 0
+  fire: 0
+  turnBackTime: 0
   BombPrefab: {fileID: 1640722563682329141, guid: e321578343224447eb183f01cde125cb, type: 3}
 --- !u!114 &5953321940039880322
 MonoBehaviour:
@@ -179,9 +181,37 @@ MonoBehaviour:
     m_ActionId: ba0ac438-761e-44b8-8956-a44cacafee40
     m_ActionName: Player/Bomb[/Keyboard/numpadPeriod,/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5953321940039880376}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnRewind
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 1ea8a820-4965-4028-98bf-95dac9d7cf2c
     m_ActionName: Player/Rewind[/Keyboard/numpadEnter,/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5953321940039880376}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4b2800b0-710c-448d-8758-a4afed8ec9f6
+    m_ActionName: Player/Fire[/Keyboard/q,/Keyboard/numpad0,/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
