@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrayFireHandler : MonoBehaviour
 {
     [SerializeField] private GameObject currentPlayer;
-    [SerializeField] private float _damageAmount = 30f;
+    [SerializeField] private float _damageAmount = 10f;
 
     private void OnCollisionEnter2D(Collision2D col)
     {
