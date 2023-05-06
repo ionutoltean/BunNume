@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public bool fire;
     public bool turnBackTime;
     public GameObject BombPrefab;
+    public AudioSource placeBombSound;
     private bool canMove;
     private bool onTerrain;
     private Animator _animator;
@@ -145,6 +146,7 @@ public class Player : MonoBehaviour
         if (bombCooldownInternal <= 0)
         {
             var bomb = Instantiate(BombPrefab, transform.position, Quaternion.identity);
+            placeBombSound.Play();
             bombCooldownInternal = _bombCooldown;
         }
     }
