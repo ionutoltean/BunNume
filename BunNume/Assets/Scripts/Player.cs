@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public bool bomb;
     public bool rewind;
     public GameObject BombPrefab;
+    private bool canMove;
+    private bool onTerrain;
 
 
     // Update is called once per frame
@@ -62,17 +64,29 @@ public class Player : MonoBehaviour
         rewind = context.action.triggered;
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.name.Contains("Terrain"))
+            onTerrain = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.name.Contains("Terrain"))
+            onTerrain = false;
+    }
+
     private void HandleMovement()
     {
         Vector3 position = transform.position;
         float moveDistance = _moveSpeed * Time.deltaTime;
         // inputDirection = _gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputDirection.x, inputDirection.y, inputDirection.y);
-        bool canMove = !Physics.CapsuleCast(position, position + Vector3.up * playerHeight,
-            playerSize, moveDir, moveDistance);
 
 
-        if (!canMove)
+        canMove = true;
+        if (onTerrain == false) return;
+        if (canMove)
         {
             /// X
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
@@ -108,7 +122,7 @@ public class Player : MonoBehaviour
 
         if (rewind)
         {
-            Debug.Log("Rewinded "+transform.name);
+            Debug.Log("Rewinded " + transform.name);
         }
 
         _isWalking = moveDir != Vector3.zero;
