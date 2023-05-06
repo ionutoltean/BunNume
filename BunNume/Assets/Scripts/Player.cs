@@ -19,10 +19,13 @@ public class Player : MonoBehaviour
     public Vector3 inputDirection;
     public bool bomb;
     public bool rewind;
+    public bool fire;
+    public bool turnBackTime;
     public GameObject BombPrefab;
     private bool canMove;
     private bool onTerrain;
     private Animator _animator;
+    private PlayerTray _playerTray;
 
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class Player : MonoBehaviour
     {
         _gameInput.OnRewindAction += GameInputOnRewindAction;
         _animator = GetComponentInChildren<Animator>();
+        _playerTray =GetComponentInChildren<PlayerTray>();
     }
 
 
@@ -64,6 +68,11 @@ public class Player : MonoBehaviour
     public void OnRewind(InputAction.CallbackContext context)
     {
         rewind = context.action.triggered;
+    }
+    
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        fire = context.action.triggered;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -97,6 +106,11 @@ public class Player : MonoBehaviour
         {
             BombTriggered();
         }
+        
+        if (fire)
+        {
+            FireTriggered();
+        }
 
         if (rewind)
         {
@@ -124,4 +138,10 @@ public class Player : MonoBehaviour
         var bomb = Instantiate(BombPrefab, transform);
         bomb.transform.SetParent(transform.parent);
     }
+    public void FireTriggered()
+    {
+       _playerTray.BurnPastTray();
+    }
+    
+    
 }
