@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float currentHealth = 100f;
     [SerializeField] private float _cooldownDMG = 0.5f;
     public AudioSource deathSound;
+    public AudioSource ouchSound;
     public ParticleSystem bloodParticle;
     private Image _healthImage;
     private bool _canTakeDMG = true;
@@ -48,6 +49,8 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+        if(ouchSound)
+            ouchSound.Play();
 
         if (_healthImage != null)
             _healthImage.fillAmount = currentHealth / 100;

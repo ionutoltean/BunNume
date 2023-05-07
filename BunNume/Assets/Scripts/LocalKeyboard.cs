@@ -17,8 +17,8 @@ public class LocalKeyboard : MonoBehaviour
             pairWithDevice: Keyboard.current);
         player2 = PlayerInput.Instantiate(player2Prefab, controlScheme: "KeyboardWASD",
             pairWithDevice: Keyboard.current);
-        player1.gameObject.SetActive(false);
-        player2.gameObject.SetActive(false);
+       // player1.gameObject.SetActive(false);
+       // player2.gameObject.SetActive(false);
         //var player3 = PlayerInput.Instantiate(playerPrefab, controlScheme: "Gamepad", pairWithDevice: Gamepad.current);
         // var player3 = PlayerInput.Instantiate(playerPrefab, controlScheme: "Gamepad", pairWithDevice: Gamepad.current);
     }

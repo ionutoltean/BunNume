@@ -44,19 +44,11 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _gameInput.OnRewindAction += GameInputOnRewindAction;
         _animator = GetComponentInChildren<Animator>();
         _playerTray =GetComponentInChildren<PlayerTray>();
     }
 
 
-    //Bomb
-    private void GameInputOnRewindAction(object sender, EventArgs e)
-    {
-        float interactDistance = 2f;
-        //  var inputVector = _gameInput.GetMovementVectorNormalized();
-        //  Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
-    }
 
     public bool IsWalking()
     {
