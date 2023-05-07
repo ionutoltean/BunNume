@@ -32,7 +32,7 @@ public class MenuManager : MonoBehaviour
             SceneManager.LoadScene(1);
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             GetBackToMainMenu();
         }
