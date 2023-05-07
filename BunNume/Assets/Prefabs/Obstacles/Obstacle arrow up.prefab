@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
-  moveAmount: 0.2
+  moveAmount: 0.4
   timeToDestroy: 0.3
   moveToTarget: {fileID: 0}
   breakParticle: {fileID: 5136413901742135710}
