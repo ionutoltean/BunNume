@@ -237,17 +237,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Left stick to move / A to place bomb
+  m_text: 'Move: WASD, Controller right stick
 
-    WASD to move / E to place bomb
+    Place bomb: E, Controller A
 
-    Arrow
-    keys to move / Numpad . to place bomb
+    Fire:
+    Q, Controller B
 
-'
+    Rewind: R, Controller X'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 931b67b8172724326a356ac201631d80, type: 2}
-  m_sharedMaterial: {fileID: 7965710938384705188, guid: 931b67b8172724326a356ac201631d80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 84a76c3bc5e5e4f7a83f6b5086441bae, type: 2}
+  m_sharedMaterial: {fileID: 1349244385933995607, guid: 84a76c3bc5e5e4f7a83f6b5086441bae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -282.01163, y: 0, z: -318.661, w: -218.88159}
+  m_margin: {x: -282.01163, y: 0, z: -318.661, w: -322.76343}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -483,10 +483,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sample Game Name
+  m_text: Hells arena
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 931b67b8172724326a356ac201631d80, type: 2}
-  m_sharedMaterial: {fileID: 7965710938384705188, guid: 931b67b8172724326a356ac201631d80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 84a76c3bc5e5e4f7a83f6b5086441bae, type: 2}
+  m_sharedMaterial: {fileID: 1349244385933995607, guid: 84a76c3bc5e5e4f7a83f6b5086441bae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1100,10 +1100,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Place bomb to start game
+  m_text: Press space to start game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 931b67b8172724326a356ac201631d80, type: 2}
-  m_sharedMaterial: {fileID: 7965710938384705188, guid: 931b67b8172724326a356ac201631d80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 84a76c3bc5e5e4f7a83f6b5086441bae, type: 2}
+  m_sharedMaterial: {fileID: 1349244385933995607, guid: 84a76c3bc5e5e4f7a83f6b5086441bae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
