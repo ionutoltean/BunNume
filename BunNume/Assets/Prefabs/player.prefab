@@ -276,10 +276,10 @@ MonoBehaviour:
     m_ActionName: Player/Bomb[/Keyboard/numpadPeriod,/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5953321940039880376}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnRewind
-        m_Mode: 0
+      - m_Target: {fileID: 719000913995804080}
+        m_TargetAssemblyTypeName: RaycastRewind, Assembly-CSharp
+        m_MethodName: FireRewind
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
