@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5953321940039880322}
   - component: {fileID: 1518222494}
   - component: {fileID: 727762646}
+  - component: {fileID: 719000913995804080}
   - component: {fileID: 9049465111006244269}
   - component: {fileID: 8110531542221736001}
   m_Layer: 6
@@ -238,10 +239,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d170ac00cef354790ba2de1105c467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateTrayRatePerSecond: 10
-  _removePastTrayDelay: 10
+  _updateTrayRatePerSecond: 5
+  _removePastTrayDelay: 15
   _toSpawnPastPosition: {fileID: 2712233884284567121}
-  _goSecondsInPast: 5
+  _cdImage: {fileID: 6787223509312606632}
+  _CD: 7
+  _goSecondsInPast: 3
+--- !u!114 &719000913995804080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953321940039880379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8215895e03b098d4da3a64d72b7168d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocity: 10
+  _rewindBullet: {fileID: 4809290050321805055, guid: b84f18e8ad8d22647abfe258b105fd66, type: 3}
+  _coolDown: 5
+  _selfDestroy: 15
+  _cdImage: {fileID: 7249881830541680326}
+  _canShoot: 1
 --- !u!82 &9049465111006244269
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5545,3 +5566,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5776288865328965684, guid: 905bc361d656a424ea8375b8c33c72c1, type: 3}
   m_PrefabInstance: {fileID: 8017263824119754767}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7249881830541680326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 855626640909250249, guid: 905bc361d656a424ea8375b8c33c72c1, type: 3}
+  m_PrefabInstance: {fileID: 8017263824119754767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6787223509312606632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3562915936522297767, guid: 905bc361d656a424ea8375b8c33c72c1, type: 3}
+  m_PrefabInstance: {fileID: 8017263824119754767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

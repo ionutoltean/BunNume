@@ -63,8 +63,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        bloodParticle.Play();
-        deathSound.Play();
+        if(bloodParticle)
+            bloodParticle.Play();
+        if(deathSound)
+            deathSound.Play();
         Debug.Log(gameObject.transform.name + " has died");
     }
 }

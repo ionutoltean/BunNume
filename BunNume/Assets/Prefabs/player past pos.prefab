@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7648377468570886699}
   - component: {fileID: 7648377468570886697}
-  - component: {fileID: 7648377468570886696}
+  - component: {fileID: 7592106399332312102}
   - component: {fileID: 4779698450033386108}
   - component: {fileID: 1319207926298949437}
   - component: {fileID: 7864182301882482215}
@@ -134,7 +134,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &7648377468570886696
+--- !u!114 &7592106399332312102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,12 +143,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7648377468570886698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21864453af1f24cd0a70cf7ca8a8a61f, type: 3}
+  m_Script: {fileID: 11500000, guid: a19b1e6e35319284985f8b8105ef9c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  _cooldownDMG: 0.5
+  health: 100
 --- !u!58 &4779698450033386108
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -221,19 +219,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4469749203399680, guid: be6847dd39ab95f4daa2ed98e4f90564, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.34199
+      value: 0.5636646
       objectReference: {fileID: 0}
     - target: {fileID: 4469749203399680, guid: be6847dd39ab95f4daa2ed98e4f90564, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.34199
+      value: 0.5636646
       objectReference: {fileID: 0}
     - target: {fileID: 4469749203399680, guid: be6847dd39ab95f4daa2ed98e4f90564, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.34199
+      value: 0.5636646
       objectReference: {fileID: 0}
     - target: {fileID: 4469749203399680, guid: be6847dd39ab95f4daa2ed98e4f90564, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.029
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4469749203399680, guid: be6847dd39ab95f4daa2ed98e4f90564, type: 3}
       propertyPath: m_LocalPosition.y
@@ -297,8 +295,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be6847dd39ab95f4daa2ed98e4f90564, type: 3}
+--- !u!1 &7459570646490116165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1478314613700728, guid: be6847dd39ab95f4daa2ed98e4f90564, type: 3}
+  m_PrefabInstance: {fileID: 7458233111811393597}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7462207612043656253 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4469749203399680, guid: be6847dd39ab95f4daa2ed98e4f90564, type: 3}
   m_PrefabInstance: {fileID: 7458233111811393597}
   m_PrefabAsset: {fileID: 0}
+--- !u!210 &4192203870653347048
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459570646490116165}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 100

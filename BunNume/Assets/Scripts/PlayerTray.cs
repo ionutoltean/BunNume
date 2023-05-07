@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerTray : MonoBehaviour
 {
     [SerializeField] private int _updateTrayRatePerSecond;
     [SerializeField] private float _removePastTrayDelay;
     [SerializeField] private GameObject _toSpawnPastPosition;
-    
+    [SerializeField] private Image _cdImage;
+    [SerializeField] private float _CD = 7f;
     [SerializeField] private int _goSecondsInPast;
     
     private List<GameObject> _pastPlayerData;
@@ -16,7 +18,8 @@ public class PlayerTray : MonoBehaviour
 
     private PlayerHealth playerHealth;
     private GameObject _parentOfSpawns;
-
+    private bool _canShoot = true;
+    private RaycastRewind _rewindAbility;
     void Start()
     {
         Initialize();
@@ -25,7 +28,7 @@ public class PlayerTray : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             GoBackInTime(_goSecondsInPast);
         }
@@ -33,6 +36,17 @@ public class PlayerTray : MonoBehaviour
         {
             BurnPastTray();
         }
+        if (_canShoot == false)
+        {
+            _cdImage.fillAmount += 1.0f / _CD * Time.deltaTime;
+        }
+    }
+    private IEnumerator WaitCooldownDMG()
+    {
+        _canShoot = false;
+        _cdImage.fillAmount = 0f;
+        yield return new WaitForSeconds(_CD);
+        _canShoot = true;
     }
     private void Initialize()
     {
@@ -40,6 +54,7 @@ public class PlayerTray : MonoBehaviour
         _pastPlayerData = new List<GameObject>();
         _lastPostion = transform.localPosition;
         playerHealth = gameObject.GetComponent<PlayerHealth>();
+        _rewindAbility = gameObject.GetComponent<RaycastRewind>();
     }
 
     private void OnDestroy()
@@ -50,6 +65,8 @@ public class PlayerTray : MonoBehaviour
 
     public void GoBackInTime(int secondsInPast)
     {
+        if (_rewindAbility._canShoot == false)
+            return;
         try
         {
             int pastPositionIndex = _pastPlayerData.Count - (secondsInPast * _updateTrayRatePerSecond);
@@ -59,7 +76,7 @@ public class PlayerTray : MonoBehaviour
 
             transform.position = _pastPlayerData[pastPositionIndex].transform.position;
 
-            playerHealth.SetCurrentHealth(_pastPlayerData[pastPositionIndex].transform.gameObject.GetComponent<PlayerHealth>().GetCurrentHealth());
+            playerHealth.SetCurrentHealth(_pastPlayerData[pastPositionIndex].transform.gameObject.GetComponent<PlayerHealthHolder>().health);
 
             _pastPlayerData.RemoveRange(pastPositionIndex, secondsInPast * _updateTrayRatePerSecond);
         }catch(ArgumentOutOfRangeException e)
@@ -68,10 +85,13 @@ public class PlayerTray : MonoBehaviour
                 transform.position = _pastPlayerData[0].transform.position;
             ClearSpawnedStuf();
         }
+        _rewindAbility.StartCoroutine(_rewindAbility.WaitCooldownDMG());
     }
 
     public void BurnPastTray()
     {
+        if (_canShoot == false)
+            return;
         for (int i = 0; i < _parentOfSpawns.transform.childCount; i++)
         {
             GameObject tray = _parentOfSpawns.transform.GetChild(i).gameObject;
@@ -91,6 +111,7 @@ public class PlayerTray : MonoBehaviour
                
             
         }
+        StartCoroutine(nameof(WaitCooldownDMG));
     }
     private void ClearSpawnedStuf()
     {
@@ -150,8 +171,8 @@ public class PlayerTray : MonoBehaviour
     }
     private void SavePlayerHealthInPast(GameObject go)
     {
-        PlayerHealth playerHealthSave = go.GetComponent<PlayerHealth>();
-        playerHealthSave.SetCurrentHealth(playerHealth.GetCurrentHealth());
+        PlayerHealthHolder playerHealthSave = go.GetComponent<PlayerHealthHolder>();
+        playerHealthSave.health = playerHealth.GetCurrentHealth();
     }
     private void SetLineRendererPositions(GameObject first, GameObject second)
     {
