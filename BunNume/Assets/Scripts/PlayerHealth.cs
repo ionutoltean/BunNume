@@ -72,7 +72,13 @@ public class PlayerHealth : MonoBehaviour
         if (deathSound)
             deathSound.Play();
         var anim = GetComponentInChildren<Animator>();
-        if (anim != null) anim.SetBool("Ded", true);
+        if (anim != null)
+        {
+            
+            anim.SetBool("Ded", true);
+            var player = GetComponentInChildren<Player>();
+            player.enabled = false;
+        }
 
         Debug.Log(gameObject.transform.name + " has died");
     }

@@ -29,7 +29,7 @@ public class MenuManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Start game
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -40,6 +40,6 @@ public class MenuManager : MonoBehaviour
 
     public void GetBackToMainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
