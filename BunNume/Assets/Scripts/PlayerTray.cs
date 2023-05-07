@@ -30,7 +30,7 @@ public class PlayerTray : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            GoBackInTime(_goSecondsInPast);
+            GoBackInTime();
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -63,8 +63,9 @@ public class PlayerTray : MonoBehaviour
         StopAllCoroutines();
     }
 
-    public void GoBackInTime(int secondsInPast)
+    public void GoBackInTime(int secondsInPast=5)
     {
+        
         if (_rewindAbility._canShoot == false)
             return;
         try

@@ -62,6 +62,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GoBackInTime"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6b6f25f-ed05-4caf-b08c-b4707904057d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -328,6 +337,50 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8612471f-26a6-4fd2-be5d-626619775cb4"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardWASD"",
+                    ""action"": ""GoBackInTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ebe893b-3523-472a-ad2c-cd1c085beebf"",
+                    ""path"": ""<Keyboard>/numpad3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardArrows"",
+                    ""action"": ""GoBackInTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53e3de3a-e1e6-4767-a200-2c73ceeadcaf"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardArrows"",
+                    ""action"": ""GoBackInTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40b50662-3595-42b4-a022-40cfdab666db"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""GoBackInTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -385,6 +438,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Bomb = m_Player.FindAction("Bomb", throwIfNotFound: true);
         m_Player_Rewind = m_Player.FindAction("Rewind", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_GoBackInTime = m_Player.FindAction("GoBackInTime", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -448,6 +502,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Bomb;
     private readonly InputAction m_Player_Rewind;
     private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_GoBackInTime;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -456,6 +511,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Bomb => m_Wrapper.m_Player_Bomb;
         public InputAction @Rewind => m_Wrapper.m_Player_Rewind;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @GoBackInTime => m_Wrapper.m_Player_GoBackInTime;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -477,6 +533,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @GoBackInTime.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGoBackInTime;
+                @GoBackInTime.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGoBackInTime;
+                @GoBackInTime.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGoBackInTime;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -493,6 +552,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @GoBackInTime.started += instance.OnGoBackInTime;
+                @GoBackInTime.performed += instance.OnGoBackInTime;
+                @GoBackInTime.canceled += instance.OnGoBackInTime;
             }
         }
     }
@@ -539,5 +601,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnBomb(InputAction.CallbackContext context);
         void OnRewind(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnGoBackInTime(InputAction.CallbackContext context);
     }
 }

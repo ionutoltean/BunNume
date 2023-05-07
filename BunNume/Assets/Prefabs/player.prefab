@@ -306,6 +306,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4b2800b0-710c-448d-8758-a4afed8ec9f6
     m_ActionName: Player/Fire[/Keyboard/q,/Keyboard/numpad0,/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 727762646}
+        m_TargetAssemblyTypeName: PlayerTray, Assembly-CSharp
+        m_MethodName: GoBackInTime
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f6b6f25f-ed05-4caf-b08c-b4707904057d
+    m_ActionName: Player/GoBackInTime[/Keyboard/f,/Keyboard/numpad3,/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
