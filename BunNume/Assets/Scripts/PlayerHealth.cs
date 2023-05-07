@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -80,6 +81,25 @@ public class PlayerHealth : MonoBehaviour
             player.enabled = false;
         }
 
-        Debug.Log(gameObject.transform.name + " has died");
+        Invoke(nameof(DidEveryoneDie), 0.1f);
+    }
+
+    private void DidEveryoneDie()
+    {
+        var ok = 0;
+        foreach (var player in FindObjectsOfType<Player>())
+        {
+            if (player.enabled) ok++;
+        }
+
+        if (ok == 1)
+        {
+            Invoke(nameof(GetToEndScreen), 1);
+        }
+    }
+
+    private void GetToEndScreen()
+    {
+        SceneManager.LoadScene(3);
     }
 }
