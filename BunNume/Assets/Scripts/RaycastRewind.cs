@@ -23,10 +23,10 @@ public class RaycastRewind : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            FireRewind();
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     FireRewind();
+        // }
         if (_canShoot == false)
         {
             _cdImage.fillAmount += 1.0f / _coolDown * Time.deltaTime;
@@ -43,7 +43,7 @@ public class RaycastRewind : MonoBehaviour
         yield return new WaitForSeconds(_coolDown);
         _canShoot = true;
     }
-    private void FireRewind()
+    public void FireRewind()
     {
        
         if (_canShoot == false) return;
