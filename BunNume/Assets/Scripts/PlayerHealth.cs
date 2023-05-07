@@ -49,7 +49,8 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        if(ouchSound)
+
+        if (ouchSound)
             ouchSound.Play();
 
         if (_healthImage != null)
@@ -66,10 +67,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        if(bloodParticle)
+        if (bloodParticle)
             bloodParticle.Play();
-        if(deathSound)
+        if (deathSound)
             deathSound.Play();
+        var anim = GetComponentInChildren<Animator>();
+        if (anim != null) anim.SetBool("Ded", true);
+
         Debug.Log(gameObject.transform.name + " has died");
     }
 }
