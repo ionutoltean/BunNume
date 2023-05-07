@@ -269,7 +269,10 @@ MonoBehaviour:
     Fire:
     Q, Controller B
 
-    Rewind: R, Controller X'
+    Rewind: R, Controller X
+
+    Go back in time: F, Controller
+    Y'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84a76c3bc5e5e4f7a83f6b5086441bae, type: 2}
   m_sharedMaterial: {fileID: 1349244385933995607, guid: 84a76c3bc5e5e4f7a83f6b5086441bae, type: 2}
